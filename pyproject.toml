@@ -1,0 +1,102 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "analog-neural-training"
+version = "1.0.0"
+description = "模拟计算启发式神经网络训练系统：基于ODE积分器的高能效训练框架"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Zhao Xuancan", email = "zhaoxuancan@example.com"}
+]
+maintainers = [
+    {name = "Zhao Xuancan", email = "zhaoxuancan@example.com"}
+]
+keywords = [
+    "deep-learning",
+    "neural-networks", 
+    "analog-computing",
+    "ode-solvers",
+    "energy-efficient-ai",
+    "optimization",
+    "neuromorphic-computing",
+    "machine-learning",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Natural Language :: Chinese (Simplified)",
+]
+
+[project.urls]
+Homepage = "https://github.com/EagleFandel/analog-neural-training"
+Documentation = "https://github.com/EagleFandel/analog-neural-training/blob/main/docs/user_guide.md"
+Repository = "https://github.com/EagleFandel/analog-neural-training"
+"Bug Tracker" = "https://github.com/EagleFandel/analog-neural-training/issues"
+Changelog = "https://github.com/EagleFandel/analog-neural-training/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+packages = ["src", "analysis"]
+
+[tool.setuptools.package-data]
+"*" = ["*.yaml", "*.yml", "*.json"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+  | __pycache__
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+skip_gitignore = true
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+exclude = [
+    "^build/",
+    "^dist/",
+    "^\\.venv/",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "-v --cov=src --cov-report=term-missing --cov-report=html"
