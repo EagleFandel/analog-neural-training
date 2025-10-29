@@ -73,3 +73,10 @@ htmlcov/
 .dmypy.json
 dmypy.json
 
+# Security - DO NOT COMMIT
+PYPI_RECOVERY_CODES.txt
+*.pem
+*.key
+secrets/
+.env
+
