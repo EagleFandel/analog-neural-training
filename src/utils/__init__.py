@@ -3,12 +3,11 @@
 
 提供通用工具函数
 """
-from src.utils.plot import setup_matplotlib, create_comparison_plot
-from src.utils.seed import set_random_seed
+from src.utils.plot import plot_curves
+from src.utils.seed import set_global_seed
 
 __all__ = [
-    "setup_matplotlib",
-    "create_comparison_plot",
-    "set_random_seed",
+    "plot_curves",
+    "set_global_seed",
 ]
 
