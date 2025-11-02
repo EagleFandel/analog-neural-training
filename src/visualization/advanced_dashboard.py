@@ -388,7 +388,7 @@ def main():
     with tab1:
         st.subheader("训练损失曲线")
         fig_loss = plot_loss_curves(data)
-        st.plotly_chart(fig_loss, use_container_width=True)
+        st.plotly_chart(fig_loss, use_container_width=True, key="loss_curves_chart")
         
         if data.get("_filetype") == "csv":
             # CSV数据显示
@@ -422,7 +422,7 @@ def main():
     with tab2:
         st.subheader("能耗与计算量对比")
         fig_energy = plot_energy_comparison(data)
-        st.plotly_chart(fig_energy, use_container_width=True)
+        st.plotly_chart(fig_energy, use_container_width=True, key="energy_comparison_chart")
         
         # 能耗分析
         st.subheader("数字 vs 模拟架构能耗估算")
@@ -452,7 +452,7 @@ def main():
         st.markdown("显示所有实验的多目标优化前沿")
         
         fig_pareto = plot_pareto_frontier(all_files)
-        st.plotly_chart(fig_pareto, use_container_width=True)
+        st.plotly_chart(fig_pareto, use_container_width=True, key="pareto_frontier_chart")
         
         st.info("""
         **Pareto前沿解读**：
@@ -465,7 +465,7 @@ def main():
         st.subheader("优化器综合评估")
         
         fig_radar = plot_efficiency_radar(data)
-        st.plotly_chart(fig_radar, use_container_width=True)
+        st.plotly_chart(fig_radar, use_container_width=True, key="efficiency_radar_chart")
         
         # 效率排名
         if "results" in data:
@@ -548,7 +548,7 @@ def main():
                 yaxis_title="预测准确率 (%)",
                 template="plotly_white"
             )
-            st.plotly_chart(fig_sweep, use_container_width=True)
+            st.plotly_chart(fig_sweep, use_container_width=True, key="adc_sweep_chart")
     
     # 底部：导出功能
     st.sidebar.markdown("---")
